@@ -1,4 +1,4 @@
-// import data from './data.json';
+
 import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
 
@@ -30,11 +30,13 @@ export const Statistics = ({title, stats}) => {
 
   )
 }
-Statistics.propType = {
-  title: PropTypes.string.isRequired,
-  stats: PropTypes.shape({
-    id: PropTypes.string,
-    label: PropTypes.string,
-    percentage: PropTypes.number
-  }).isRequired
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired
+    })
+  ).isRequired
 };
